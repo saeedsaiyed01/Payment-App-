@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+require('dotenv').config()
 
 
 const CaptchaComponent = () => {
@@ -11,7 +11,7 @@ const CaptchaComponent = () => {
         // Fetch the CAPTCHA from the server
         const fetchCaptcha = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/api/v1/captcha');
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/v1/captcha`);
                 setCaptchaImage(response.data.captchaImage);
                 setCaptchaText(response.data.captchaText);
 

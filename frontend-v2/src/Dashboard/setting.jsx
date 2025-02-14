@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { AppBar } from "../components/Appbar";
+require('dotenv').config()
 
 export const SettingsPage = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -16,7 +17,7 @@ export const SettingsPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/user/me", {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

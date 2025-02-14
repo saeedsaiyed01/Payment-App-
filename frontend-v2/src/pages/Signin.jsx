@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppBar } from '../components/Appbar';
 import { BottomWarning } from '../components/BottomWar';
+require('dotenv').config()
 
 export const Signin = () => {
   // Use email as the username for sign in
@@ -29,7 +30,7 @@ export const Signin = () => {
 
   const fetchCaptcha = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/v1/captcha/captcha', {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/captcha/captcha`, {
         withCredentials: true,
       });
       setCaptchaImage(response.data.captchaData);

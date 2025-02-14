@@ -6,7 +6,7 @@ import { BottomWarning } from "../components/BottomWar";
 import { Checkmark } from "../components/motion";
 import PinInput from "../components/PinInput";
 
-const API_URL = "http://localhost:3000"; // Adjust based on your environment
+require('dotenv').config()
 
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();
@@ -23,7 +23,7 @@ export const SendMoney = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`${API_URL}/api/v1/user/me`, {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 setUserId(response.data._id);
@@ -34,7 +34,7 @@ export const SendMoney = () => {
 
         const fetchBalance = async () => {
             try {
-                const response = await axios.get(`${API_URL}/api/v1/account/balance`, {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 setBalance(response.data.balance);

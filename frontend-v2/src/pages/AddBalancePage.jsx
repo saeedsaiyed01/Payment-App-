@@ -5,7 +5,7 @@ import { BottomWarning } from '../components/BottomWar';
 import { InputBox } from '../components/InputBox';
 import PinInput from '../components/PinInput';
 import { Checkmark } from '../components/motion';
-const API_URL = "http://localhost:3000";
+require('dotenv').config()
 
 const AddBalancePage = () => {
     const [amount, setAmount] = useState('');
@@ -18,7 +18,7 @@ const AddBalancePage = () => {
     useEffect(() => {
         const fetchBalance = async () => {
             try {
-                const response = await axios.get(`${API_URL}/api/v1/account/balance`, {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

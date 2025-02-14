@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Growth from "../icons/growth";
+require('dotenv').config()
 
 export const BalanceCard = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export const BalanceCard = () => {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

@@ -7,8 +7,7 @@ import { BottomWarning } from "../components/BottomWar";
 import { InputBox } from "../components/InputBox";
 import InputBoxPass from "../components/InputBoxPass";
 import { InputBoxPin } from "../components/InputBoxPin";
-const API_URL = "http://localhost:3000";
-
+require('dotenv').config()
 export const Signup = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -64,7 +63,7 @@ export const Signup = () => {
     if (!validateForm()) return;
     try {
       const { firstName, lastName, username, password, pin } = formData;
-      const response = await axios.post(`${API_URL}/api/v1/user/signup`, {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signup`, {
         username,
         firstName,
         lastName,

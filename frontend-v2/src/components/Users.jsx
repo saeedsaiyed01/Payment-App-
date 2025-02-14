@@ -2,8 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./Button";
-
-const API_URL = "http://localhost:3000";
+require('dotenv').config()
 
 export const Users = () => {
     const [users, setUsers] = useState([]);
@@ -21,13 +20,13 @@ export const Users = () => {
 
         const fetchLoggedInUserAndUsers = async () => {
             try {
-                const userResponse = await axios.get(`${API_URL}/api/v1/user/me`, {
+                const userResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const currentUserId = userResponse.data._id;
                 setLoggedInUserId(currentUserId);
 
-                const usersResponse = await axios.get(`${API_URL}/api/v1/user/bulk?filter=${filter}`, {
+                const usersResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/bulk?filter=${filter}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 

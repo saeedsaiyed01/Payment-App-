@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AddBalanceButton from './AddBalanceButton';
+require('dotenv').config()
 
 export const Balance = () => {
   const [balance, setBalance] = useState(null);
@@ -8,7 +9,7 @@ export const Balance = () => {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}` // Assuming you store JWT in localStorage
           }

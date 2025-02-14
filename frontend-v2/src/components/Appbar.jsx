@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Wallet from "../icons/wallet";
+require('dotenv').config()
 export const AppBar = () => {
     const [username, setUsername] = useState("");
     const [lastName, setLastName] = useState("");
@@ -11,7 +12,7 @@ export const AppBar = () => {
     useEffect(() => {
         const fetchName = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/v1/user/me", {
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
