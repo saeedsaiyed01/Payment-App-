@@ -18,31 +18,13 @@ app.get("/", (req, res) => {
 });
 
 // CORS Configuration
-const allowedOrigins = [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'https://frontend-v2-qk07wj39y-saeeds-projects-59535290.vercel.app',
-    'https://payment-app-neon.vercel.app/',
-    'https://payment-app-moaj.vercel.app/',
-];
-
-// Debugging log for incoming requests
-const corsOptions = {
-    origin: function (origin, callback) {
-        console.log("🔍 Request Origin:", origin); // Debug log
-
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.error("❌ Blocked by CORS:", origin);
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
+app.use(cors({
+    origin: "*",
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};   
-app.use(cors(corsOptions));
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }));
+  
 
 // Mount the main router
 app.use('/api/v1', rootRouter);
