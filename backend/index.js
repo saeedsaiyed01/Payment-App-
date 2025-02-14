@@ -18,13 +18,26 @@ app.get("/", (req, res) => {
 });
 
 // CORS Configuration
+const allowedOrigins = [
+    'https://payment-app-moaj.vercel.app'
+];
+
 app.use(cors({
-    origin: "*",
+    origin: function (origin, callback) {
+        console.log("🔍 Request Origin:", origin);
+        // Allow requests with no origin (like Postman) or if origin is in our list
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.error("❌ Blocked by CORS:", origin);
+            callback(new Error("Not allowed by CORS"), false);
+        }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  }));
-  
+}));
+
 
 // Mount the main router
 app.use('/api/v1', rootRouter);
