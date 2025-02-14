@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 const allowedOrigins = [
     'http://localhost:5173','http://localhost:5174',
     " https://frontend-v2-qk07wj39y-saeeds-projects-59535290.vercel.app",
+    "https://payment-app-rzd7.vercel.app"
      // / // Your frontend local origin
     // Add more origins as needed
 ];
