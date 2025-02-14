@@ -13,7 +13,10 @@ const app = express();
 // Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.get("/", (req, res) => {
+    res.send("Backend is working!");
+  });
+  
 // CORS configuration
 const allowedOrigins = [
     'http://localhost:5173','http://localhost:5174' // Your frontend local origin
