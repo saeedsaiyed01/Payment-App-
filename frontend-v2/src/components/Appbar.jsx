@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Wallet from "../icons/wallet";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const AppBar = () => {
     const [username, setUsername] = useState("");
@@ -12,7 +13,7 @@ export const AppBar = () => {
     useEffect(() => {
         const fetchName = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
+                const response = await axios.get(`${API_URL}/api/v1/user/me`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

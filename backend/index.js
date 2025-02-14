@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 //     credentials: true,
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     allowedHeaders: ['Content-Type', 'Authorization'],
-// };
+// };   
 app.use(cors({ origin: "https://payment-app-rzd7.vercel.app" }));
 
 // Mount the main router

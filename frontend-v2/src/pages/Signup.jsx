@@ -7,6 +7,8 @@ import { BottomWarning } from "../components/BottomWar";
 import { InputBox } from "../components/InputBox";
 import InputBoxPass from "../components/InputBoxPass";
 import { InputBoxPin } from "../components/InputBoxPin";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -63,7 +65,7 @@ export const Signup = () => {
     if (!validateForm()) return;
     try {
       const { firstName, lastName, username, password, pin } = formData;
-      const response = await axios.post(`https://payment-app-blush.vercel.app/api/v1/user/signup`, {
+      const response = await axios.post(`${API_URL}/api/v1/user/signup`, {
         username,
         firstName,
         lastName,

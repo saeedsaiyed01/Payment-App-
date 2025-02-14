@@ -5,6 +5,7 @@ import { AppBar } from "../components/Appbar";
 import { BottomWarning } from "../components/BottomWar";
 import { Checkmark } from "../components/motion";
 import PinInput from "../components/PinInput";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 
@@ -23,7 +24,7 @@ export const SendMoney = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
+                const response = await axios.get(`${API_URL}/api/v1/user/me`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 setUserId(response.data._id);

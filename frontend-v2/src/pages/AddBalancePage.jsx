@@ -5,6 +5,7 @@ import { BottomWarning } from '../components/BottomWar';
 import { InputBox } from '../components/InputBox';
 import PinInput from '../components/PinInput';
 import { Checkmark } from '../components/motion';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const AddBalancePage = () => {
     const [amount, setAmount] = useState('');
@@ -17,7 +18,7 @@ const AddBalancePage = () => {
     useEffect(() => {
         const fetchBalance = async () => {
             try {
-                const response = await axios.get(`https://payment-app-blush.vercel.app/api/v1/account/balance`, {
+                const response = await axios.get(`${API_URL}/api/v1/account/balance`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }

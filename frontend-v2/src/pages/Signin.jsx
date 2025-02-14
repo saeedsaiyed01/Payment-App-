@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppBar } from '../components/Appbar';
 import { BottomWarning } from '../components/BottomWar';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 export const Signin = () => {
@@ -30,7 +31,7 @@ export const Signin = () => {
 
   const fetchCaptcha = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/captcha/captcha`, {
+      const response = await axios.get(`${API_URL}/api/v1/captcha/captcha`, {
         withCredentials: true,
       });
       setCaptchaImage(response.data.captchaData);
@@ -97,7 +98,7 @@ export const Signin = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/v1/user/signin',
+        `${API_URL}/api/v1/user/signin`,
         {
           username: trimmedEmail,
           password,

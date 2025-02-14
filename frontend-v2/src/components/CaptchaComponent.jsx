@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 const CaptchaComponent = () => {
@@ -11,7 +12,7 @@ const CaptchaComponent = () => {
         // Fetch the CAPTCHA from the server
         const fetchCaptcha = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}api/v1/captcha`);
+                const response = await axios.get(`${API_URL}api/v1/captcha`);
                 setCaptchaImage(response.data.captchaImage);
                 setCaptchaText(response.data.captchaText);
 

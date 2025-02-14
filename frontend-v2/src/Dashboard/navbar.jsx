@@ -1,6 +1,8 @@
 // Navbar Component
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+
 export const Navbar = () => {
 
   const [showNotifications, setShowNotifications] = useState(false);
@@ -10,7 +12,7 @@ export const Navbar = () => {
   useEffect(() => {
     const fetchName = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
+        const response = await axios.get(`${API_URL}/api/v1/user/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

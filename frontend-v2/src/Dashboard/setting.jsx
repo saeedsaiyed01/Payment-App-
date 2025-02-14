@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { AppBar } from "../components/Appbar";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const SettingsPage = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -16,7 +17,7 @@ export const SettingsPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
+        const response = await axios.get(`${API_URL}/api/v1/user/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -42,7 +43,7 @@ export const SettingsPage = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/user/update-user/${userId}`,
+        `${API_URL}/api/v1/user/update-user/${userId}`,
         { firstName, lastName, username: email }, // Ensure key names match your backend
         { headers: { Authorization: `Bearer ${token}` } }
       );

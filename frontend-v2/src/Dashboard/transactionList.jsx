@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { TransactionItem } from './transactionIteam';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const TransactionsList = () => {
   const [transactions, setTransactions] = useState([]);
@@ -11,7 +12,7 @@ export const TransactionsList = () => {
     const fetchTransactions = async () => {
       try {
         // Use axios.get to perform a GET request.
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/transaction`, {
+        const response = await axios.get(`${API_URL}/api/v1/account/transaction`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}` // Assuming you store JWT in localStorage
           }

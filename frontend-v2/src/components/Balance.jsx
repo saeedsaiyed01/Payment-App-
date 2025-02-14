@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import AddBalanceButton from './AddBalanceButton';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 export const Balance = () => {
@@ -9,7 +10,7 @@ export const Balance = () => {
   useEffect(() => {
     const fetchBalance = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
+        const response = await axios.get(`${API_URL}/api/v1/account/balance`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}` // Assuming you store JWT in localStorage
           }
