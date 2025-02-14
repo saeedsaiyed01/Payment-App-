@@ -7,7 +7,7 @@ import { BottomWarning } from "../components/BottomWar";
 import { InputBox } from "../components/InputBox";
 import InputBoxPass from "../components/InputBoxPass";
 import { InputBoxPin } from "../components/InputBoxPin";
-require('dotenv').config()
+
 export const Signup = () => {
   const [formData, setFormData] = useState({
     firstName: "",

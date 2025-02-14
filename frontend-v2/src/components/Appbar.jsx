@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Wallet from "../icons/wallet";
-require('dotenv').config()
+
 export const AppBar = () => {
     const [username, setUsername] = useState("");
     const [lastName, setLastName] = useState("");

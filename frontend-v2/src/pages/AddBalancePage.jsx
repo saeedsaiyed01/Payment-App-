@@ -5,7 +5,6 @@ import { BottomWarning } from '../components/BottomWar';
 import { InputBox } from '../components/InputBox';
 import PinInput from '../components/PinInput';
 import { Checkmark } from '../components/motion';
-require('dotenv').config()
 
 const AddBalancePage = () => {
     const [amount, setAmount] = useState('');
@@ -43,7 +42,7 @@ const AddBalancePage = () => {
 
         try {
             const response = await axios.post(
-                `${API_URL}/api/v1/user/addBalance`,
+                `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/addBalance`,
                 { amount: parsedAmount, pin },
                 {
                     headers: {

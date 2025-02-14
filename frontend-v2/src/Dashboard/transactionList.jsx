@@ -2,9 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { TransactionItem } from './transactionIteam';
-require('dotenv').config()
 
-require('dotenv').config()
 export const TransactionsList = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);

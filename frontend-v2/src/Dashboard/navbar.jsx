@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 export const Navbar = () => {
-  require('dotenv').config()
+
   const [showNotifications, setShowNotifications] = useState(false);
   const [username, setUsername] = useState("");
   const [lastName, setlastName] = useState("");
@@ -10,7 +10,7 @@ export const Navbar = () => {
   useEffect(() => {
     const fetchName = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}http://localhost:3000/api/v1/user/me`, {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

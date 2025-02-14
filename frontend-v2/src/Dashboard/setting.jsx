@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { AppBar } from "../components/Appbar";
-require('dotenv').config()
 
 export const SettingsPage = () => {
   const [activeTab, setActiveTab] = useState("profile");

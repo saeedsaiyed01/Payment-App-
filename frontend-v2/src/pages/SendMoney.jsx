@@ -6,7 +6,7 @@ import { BottomWarning } from "../components/BottomWar";
 import { Checkmark } from "../components/motion";
 import PinInput from "../components/PinInput";
 
-require('dotenv').config()
+
 
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();

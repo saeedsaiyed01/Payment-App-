@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Growth from "../icons/growth";
-require('dotenv').config()
+
 
 export const BalanceCard = () => {
   const navigate = useNavigate();
