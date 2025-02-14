@@ -41,7 +41,7 @@ app.get("/", (req, res) => {
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     allowedHeaders: ['Content-Type', 'Authorization'],
 // };   
-app.use(cors({ origin: "https://payment-app-rzd7.vercel.app" }));
+app.use(cors());
 
 // Mount the main router
 app.use('/api/v1', rootRouter);
