@@ -22,7 +22,8 @@ const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:5174',
     'https://frontend-v2-qk07wj39y-saeeds-projects-59535290.vercel.app',
-    'https://payment-app-neon.vercel.app/'   
+    'https://payment-app-neon.vercel.app/',
+    'https://payment-app-moaj.vercel.app/',
 ];
 
 // Debugging log for incoming requests
