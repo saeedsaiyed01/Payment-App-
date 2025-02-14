@@ -17,7 +17,7 @@ const AddBalancePage = () => {
     useEffect(() => {
         const fetchBalance = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
+                const response = await axios.get(`https://payment-app-blush.vercel.app/api/v1/account/balance`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -42,7 +42,7 @@ const AddBalancePage = () => {
 
         try {
             const response = await axios.post(
-                `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/addBalance`,
+                `https://payment-app-blush.vercel.app/api/v1/user/addBalance`,
                 { amount: parsedAmount, pin },
                 {
                     headers: {
