@@ -63,7 +63,7 @@ export const Signup = () => {
     if (!validateForm()) return;
     try {
       const { firstName, lastName, username, password, pin } = formData;
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/user/signup`, {
+      const response = await axios.post(`https://backend-umber-six-14.vercel.app/api/v1/user/signup`, {
         username,
         firstName,
         lastName,
