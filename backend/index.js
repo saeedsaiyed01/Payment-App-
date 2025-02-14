@@ -42,7 +42,7 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Mount the main router
 app.use('/api/v1', rootRouter);
