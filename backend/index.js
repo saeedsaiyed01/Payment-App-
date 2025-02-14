@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 // CORS Configuration
 const allowedOrigins = [
-    'https://payment-app-moaj.vercel.app'
+    'https://payment-app--nine.vercel.app'
 ];
 
 app.use(cors({
