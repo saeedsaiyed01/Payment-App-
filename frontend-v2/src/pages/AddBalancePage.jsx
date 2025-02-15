@@ -43,7 +43,7 @@ const AddBalancePage = () => {
 
         try {
             const response = await axios.post(
-                `https://payment-app-blush.vercel.app/api/v1/user/addBalance`,
+                `${API_URL}/api/v1/user/addBalance`,
                 { amount: parsedAmount, pin },
                 {
                     headers: {
