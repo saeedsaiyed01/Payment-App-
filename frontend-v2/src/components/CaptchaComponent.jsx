@@ -12,7 +12,7 @@ const CaptchaComponent = () => {
         // Fetch the CAPTCHA from the server
         const fetchCaptcha = async () => {
             try {
-                const response = await axios.get(`${API_URL}api/v1/captcha`);
+                const response = await axios.get(`${API_URL}api/v1/captcha/captcha`);
                 setCaptchaImage(response.data.captchaImage);
                 setCaptchaText(response.data.captchaText);
 

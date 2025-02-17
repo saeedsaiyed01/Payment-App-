@@ -7,7 +7,7 @@ import { BottomWarning } from "../components/BottomWar";
 import { InputBox } from "../components/InputBox";
 import InputBoxPass from "../components/InputBoxPass";
 import { InputBoxPin } from "../components/InputBoxPin";
-const API_URL = import.meta.env.VITE_BACKEND_URL;
+const API_URL = import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_LOCAL_URL;;
 
 
 export const Signup = () => {
