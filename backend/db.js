@@ -65,58 +65,7 @@
   });
 
 
-  // const transactionSchema = new mongoose.Schema({
-  //   // Reference to the User who performed the transaction
-  //   userId: {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: 'User',
-  //     required: true
-  //   },
-  //   // Reference to the Account involved in the transaction
-  //   accountId: {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: 'Account',
-  //     required: true
-  //   },
-  //   // Transaction type: 'credit' for incoming funds, 'debit' for outgoing funds
-  //   type: {
-  //     type: String,
-  //     enum: ['credit', 'debit'],
-  //     required: true
-  //   },
-  //   // A descriptive name for the transaction (e.g., "Salary Deposit", "Sent to Jane Smith")
-  //   name: {
-  //     type: String,
-  //     required: true,
-  //     trim: true
-  //   },
-  //   // Date of the transaction; default is the current date and time
-  //   date: {
-  //     type: Date,
-  //     required: true,
-  //     default: Date.now
-  //   },
-  //   // The monetary amount of the transaction
-  //   amount: {
-  //     type: Number,
-  //     required: true,
-  //     min: 0
-  //   },
-  //   // Category of the transaction (e.g., "Transfer", "Income", "Expense")
-  //   category: {
-  //     type: String,
-  //     required: true,
-  //     trim: true
-  //   },
-  //   // Status of the transaction: 'completed', 'pending', or 'failed'
-  //   status: {
-  //     type: String,
-  //     enum: ['completed', 'pending', 'failed'],
-  //     required: true
-  //   }
-  // });
 
-  // Create the model from the schema
 
   const transactionSchema = new mongoose.Schema({
     userId: {

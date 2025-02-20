@@ -13,7 +13,6 @@ export const SendMoney = () => {
     const [searchParams] = useSearchParams();
     const id = searchParams.get("id");
     const name = searchParams.get("name");
-    
     const [amount, setAmount] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
     const [balance, setBalance] = useState(null);
@@ -35,7 +34,7 @@ export const SendMoney = () => {
 
         const fetchBalance = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/account/balance`, {
+                const response = await axios.get(`${API_URL}/api/v1/account/balance`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 setBalance(response.data.balance);
