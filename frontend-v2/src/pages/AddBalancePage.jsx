@@ -58,7 +58,7 @@ const AddBalancePage = () => {
 
             if (response.status === 200) {
                 const { newBalance } = response.data;
-                setTimeout(() => { // Simulate delay
+                  setTimeout(() => { // Simulate delay
                     setBalance(parseFloat(newBalance));
                     setIsPaymentSuccessful(true);
                     setError('');
@@ -110,7 +110,7 @@ const AddBalancePage = () => {
                             </div>
                         </div>
                         <div className="text-center text-sm text-gray-600">
-                            Updated Balance: <span className="font-bold text-black">₹{balance ? balance.toFixed(2) : '0.00'}</span>
+                            Updated Balance: <span className="font-bold text-black">${balance ? balance.toFixed(2) : '0.00'}</span>
                         </div>
                     </div>
                 </div>

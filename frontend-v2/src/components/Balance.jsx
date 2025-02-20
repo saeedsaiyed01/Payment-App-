@@ -31,7 +31,7 @@ export const Balance = () => {
                 <div className="text-white  text-md font-bold text-opacity-80  uppercase tracking-wide">Your Balance</div>
                 <div className="text-3xl font-bold text-white">
                     {balance !== null ? (
-                        <span className="font-mono">₹{balance.toFixed(2)}</span>
+                        <span className="font-mono">${balance.toFixed(2)}</span>
                     ) : (
                         <div className="h-8 bg-white bg-opacity-20 rounded animate-pulse w-32" />
                     )}
