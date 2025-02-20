@@ -1,6 +1,7 @@
 // Navbar Component
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const Navbar = () => {
@@ -8,7 +9,12 @@ export const Navbar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [username, setUsername] = useState("");
   const [lastName, setlastName] = useState("");
+  const navigate = useNavigate()
 
+
+  const SettingPageMove = ()=>{
+    navigate("/setting")
+  }
   useEffect(() => {
     const fetchName = async () => {
       try {
@@ -73,7 +79,7 @@ export const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <div className="rounded-full h-12 w-12 bg-purple-600 flex justify-center items-center mt-1 mr-2">
-            <div className="text-xl font-semibold">
+            <div onClick={SettingPageMove} className=" cursor-pointer text-xl font-semibold">
               {username ? username.charAt(0).toUpperCase() : `${username}`}
               {lastName ? lastName.charAt(0).toUpperCase() : ""}
             </div>

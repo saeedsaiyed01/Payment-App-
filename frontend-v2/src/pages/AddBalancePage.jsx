@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import BounceLoader from "react-spinners/BounceLoader";
 import { AppBar } from '../components/Appbar';
 import { BottomWarning } from '../components/BottomWar';
 import { InputBox } from '../components/InputBox';
@@ -12,6 +13,7 @@ const AddBalancePage = () => {
     const [error, setError] = useState('');
     const [balance, setBalance] = useState(null);
     const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // New state for loading spinner
 
     const userId = localStorage.getItem("userId");
 
@@ -41,6 +43,8 @@ const AddBalancePage = () => {
             return;
         }
 
+        setIsLoading(true); // Start loading before request
+
         try {
             const response = await axios.post(
                 `${API_URL}/api/v1/user/addBalance`,
@@ -55,14 +59,16 @@ const AddBalancePage = () => {
 
             if (response.status === 200) {
                 const { newBalance } = response.data;
-
-                setBalance(parseFloat(newBalance));
-                setIsPaymentSuccessful(true);
-                setError('');
+                    setBalance(parseFloat(newBalance));
+                    setIsPaymentSuccessful(true);
+                    setError('');
+                    setIsLoading(false); // Stop loading after success
+            
             }
         } catch (error) {
             console.error('API call error:', error);
             setError('Error adding balance, please try again.');
+            setIsLoading(false); // Stop loading if an error occurs
         }
     };
 
@@ -78,7 +84,6 @@ const AddBalancePage = () => {
                         <div className="p-6">
                             <div className="space-y-4">
                                 <div className="space-y-2">
-
                                     <InputBox onChange={(e) => setAmount(e.target.value)} placeholder="100" label="Amount" />
                                     {error && <p className="text-red-500 text-sm">{error}</p>}
                                 </div>
@@ -86,13 +91,21 @@ const AddBalancePage = () => {
                                     <p className="mb-2 text-gray-700">Enter Pin:</p>
                                     <PinInput onSubmit={handlePinSubmit} />
                                 </div>
-                                {isPaymentSuccessful && (
+
+                                {/* Loader before success message */}
+                                {isLoading ? (
+                                    <div className="flex flex-col items-center">
+                                           <BounceLoader color="#87ffb4" />
+                                        <h3 className="text-lg font-medium text-black mt-3">Processing Payment...</h3>
+                                    </div>
+                                ) : isPaymentSuccessful && (
                                     <div className="flex flex-col items-center">
                                         <Checkmark size={60} strokeWidth={4} color="green" className="mb-4" />
                                         <h3>Payment Successful</h3>
                                         <BottomWarning label="Payment Successful. Back to dashboard" buttonText="Dashboard" to="/dashboard" />
                                     </div>
                                 )}
+                                
                             </div>
                         </div>
                         <div className="text-center text-sm text-gray-600">

@@ -17,6 +17,7 @@ export const SendMoney = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [balance, setBalance] = useState(null);
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const [userId, setUserId] = useState(null);
 
     // Fetch user details including userId
@@ -66,7 +67,7 @@ export const SendMoney = () => {
 
             if (response.status === 200) {
                 setIsSuccess(true);
-                const audio = new Audio('/sounds/payment-successfull-audio.mp3');
+                const audio = new Audio('sounds/successed-sound.mp3');
                 audio.play();
 
                 // ✅ Update balance after successful transfer
