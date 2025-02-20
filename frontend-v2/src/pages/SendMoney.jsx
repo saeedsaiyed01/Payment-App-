@@ -37,7 +37,7 @@ export const SendMoney = () => {
                 const response = await axios.get(`${API_URL}/api/v1/account/balance`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
-                setBalance(response.data.balance);
+                setBalance(response.data.balance.toFixed(2));
             } catch (error) {
                 console.error('Error fetching balance:', error);
             }
@@ -111,7 +111,7 @@ export const SendMoney = () => {
                             </div>
                         </div>
                         <div className="text-center text-sm text-gray-600">
-                            Your Balance: <span className="font-bold text-black">₹{balance}</span>
+                            Your Balance: <span className="font-bold text-black">${balance}</span>
                         </div>
                     </div>
                 </div>
