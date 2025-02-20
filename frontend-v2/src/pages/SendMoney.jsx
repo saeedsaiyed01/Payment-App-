@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import BounceLoader from "react-spinners/BounceLoader";
 import { AppBar } from "../components/Appbar";
 import { BottomWarning } from "../components/BottomWar";
 import { Checkmark } from "../components/motion";
@@ -100,7 +101,7 @@ export const SendMoney = () => {
                             </div>
                             <div className="space-y-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm text-black font-medium" htmlFor="amount">Amount (in Rs)</label>
+                                    <label className="text-sm text-black font-medium" htmlFor="amount">Amount</label>
                                     <input onChange={(e) => setAmount(e.target.value)} type="number" className="flex h-10 w-full rounded-md border px-3 py-2 text-sm" id="amount" placeholder="Enter amount" value={amount} />
                                     {error && <p className="text-red-500 text-sm">{error}</p>}
                                 </div>
