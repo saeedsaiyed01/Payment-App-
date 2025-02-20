@@ -4,7 +4,7 @@ export function SidebarItem({ text, icon, onClick, sidebarOpen }) {
       onClick={onClick}
       className={`
         flex items-center p-3 rounded-lg cursor-pointer transition-all duration-300
-        hover:bg-blue-200
+        hover:bg-blue-100
         ${sidebarOpen ? "justify-start px-4 w-full" : "justify-center w-12"}
       `}
     >

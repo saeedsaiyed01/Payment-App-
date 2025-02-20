@@ -32,7 +32,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
       <div className="flex  justify-end">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2 rounded-lg hover:bg-gray-200 transition"
+          className="p-2 rounded-lg hover:bg-blue-100 transition"
         >
           <Slide />
         </button>

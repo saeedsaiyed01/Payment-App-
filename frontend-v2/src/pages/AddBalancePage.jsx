@@ -14,7 +14,6 @@ const AddBalancePage = () => {
     const [balance, setBalance] = useState(null);
     const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
     const [isLoading, setIsLoading] = useState(false); // New state for loading spinner
-
     const userId = localStorage.getItem("userId");
 
     useEffect(() => {
@@ -59,10 +58,12 @@ const AddBalancePage = () => {
 
             if (response.status === 200) {
                 const { newBalance } = response.data;
+                setTimeout(() => { // Simulate delay
                     setBalance(parseFloat(newBalance));
                     setIsPaymentSuccessful(true);
                     setError('');
                     setIsLoading(false); // Stop loading after success
+                }, 2000); // Simulating delay (you can adjust)
             
             }
         } catch (error) {

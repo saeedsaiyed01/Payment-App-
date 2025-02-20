@@ -55,6 +55,7 @@ export const SendMoney = () => {
         }
 
         setError('');
+        setIsLoading(true); // Show loader before request
 
         try {
             const response = await axios.post(`${API_URL}/api/v1/account/transfer`, {
@@ -66,16 +67,18 @@ export const SendMoney = () => {
             });
 
             if (response.status === 200) {
-                setIsSuccess(true);
-                const audio = new Audio('sounds/successed-sound.mp3');
-                audio.play();
-
-                // ✅ Update balance after successful transfer
-                setBalance(prevBalance => prevBalance - amount);
+                setTimeout(() => { 
+                    setIsSuccess(true);
+                    const audio = new Audio('sounds/successed-sound.mp3');
+                    audio.play();
+                    setBalance(prevBalance => prevBalance - amount);
+                    setIsLoading(false); // Hide loader after success
+                }, 2000); 
             }
         } catch (error) {
             console.error('Request failed', error);
             setError('Transfer failed. Please try again.');
+            setIsLoading(false); // Hide loader if error occurs
         }
     };
 
@@ -102,10 +105,16 @@ export const SendMoney = () => {
                                     {error && <p className="text-red-500 text-sm">{error}</p>}
                                 </div>
                                 <PinInput onSubmit={handlePinSubmit} />
-                                {isSuccess && (
+                                {isLoading ? (
+                                    <div className="flex flex-col items-center">
+                                        {/* //<Spinner color="success" aria-label="Processing payment..." /> */}
+                                        <BounceLoader color="#87ffb4" />
+                                        <h3 className="text-lg font-medium text-black mt-3">Processing Payment...</h3>
+                                    </div>
+                                ) : isSuccess && (
                                     <div className="flex flex-col items-center">
                                         <Checkmark size={60} strokeWidth={4} color="green" className="mb-4" />
-                                        <h3>Transfer Successful</h3>
+                                        <h3 className="text-lg font-medium text-black">Payment Successful</h3>
                                         <BottomWarning label="Payment Successful. Back to dashboard" buttonText="Dashboard" to="/dashboard" />
                                     </div>
                                 )}
