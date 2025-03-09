@@ -46,7 +46,7 @@ router.get('/transaction/download', authMiddleware, async (req, res) => {
       // 4. GET current balance by calling the /balance route
       //    Pass the same Authorization header to satisfy authMiddleware
       const balanceRes = await axios.get(
-        'http://localhost:3000/api/v1/account/balance',
+        'https://payment-app-red-ten.vercel.app/api/v1/account/balance',
         {
           headers: {
             Authorization: req.headers.authorization,

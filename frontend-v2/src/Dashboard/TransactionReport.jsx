@@ -4,6 +4,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { AppBar } from '../components/Appbar';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const TransactionReport = () => {
   const [range, setRange] = useState({
@@ -29,7 +30,7 @@ export const TransactionReport = () => {
 
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/account/transaction?startDate=${startDate}&endDate=${endDate}`,
+        `${API_URL}/api/v1/account/transaction?startDate=${startDate}&endDate=${endDate}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -80,7 +81,7 @@ export const TransactionReport = () => {
     const endDate = range.endDate.toISOString().split("T")[0];
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/account/transaction/download?startDate=${startDate}&endDate=${endDate}&format=pdf`,
+        `${API_URL}/api/v1/account/transaction/download?startDate=${startDate}&endDate=${endDate}&format=pdf`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -106,7 +107,7 @@ export const TransactionReport = () => {
     const endDate = range.endDate.toISOString().split("T")[0];
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/account/transaction/download?startDate=${startDate}&endDate=${endDate}&format=excel`,
+        `${API_URL}/api/v1/account/transaction/download?startDate=${startDate}&endDate=${endDate}&format=excel`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
