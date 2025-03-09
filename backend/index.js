@@ -11,8 +11,7 @@ const app = express();
 // CORS Configuration - place this at the top
 const allowedOrigins = [
     'http://localhost:5173',
-    'https://payment-app--nine.vercel.app',
-    'https://payment-app--nine.vercel.app/'
+    'https://payment-app--nine.vercel.app'
 ];
 
 app.use(cors({
