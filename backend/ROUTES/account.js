@@ -5,6 +5,9 @@ const { Account } = require("../db");
 const { User } = require("../db");
 const {Transaction} = require("../db")
 const axios = require("axios")
+const PDFDocument = require("pdfkit");
+const ExcelJS = require('exceljs');
+require("pdfkit-table"); // Adds the .table() method
 
 const { default: mongoose } = require('mongoose');
 
