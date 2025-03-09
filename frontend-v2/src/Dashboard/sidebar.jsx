@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Home from "../icons/home";
 import Money from "../icons/money";
+import Paper from "../icons/Paper";
 import Setting from "../icons/setting";
 import Slide from "../icons/slide";
 import Wallet from "../icons/wallet";
@@ -63,7 +64,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
           icon={<Money />}
           sidebarOpen={sidebarOpen}
         />
-        <SidebarItem text="Wallet" icon={<Home />} sidebarOpen={sidebarOpen} />
+        <SidebarItem text="Statement"onClick={() => navigate("/statement")} icon={<Paper />} sidebarOpen={sidebarOpen} />
         <SidebarItem
           onClick={() => navigate("/setting")}
           text="Settings"

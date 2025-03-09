@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { HeroDashboard } from './Dashboard/dashboard';
 import { SettingsPage } from './Dashboard/setting';
+import { TransactionReport } from './Dashboard/TransactionReport';
 import AddBalancePage from './pages/AddBalancePage';
 import { DashboardMain } from './pages/DashboardMain';
 import Hero from './pages/hero';
@@ -17,6 +18,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/setting" element={<SettingsPage />} />
+        <Route path="/statement" element={<TransactionReport />} />
         {/* //TODO: remove it after test */}
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/dashboard" element={<HeroDashboard />} />

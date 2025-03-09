@@ -52,7 +52,11 @@ export const Users = () => {
             <div className="text-3xl font-bold text-gray-800 mb-6">All Users</div>
             <div className="mb-6 relative">
                 <input 
-                    onChange={(e) => setFilter(e.target.value)} 
+                
+                
+
+
+                
                     type="text" 
                     placeholder="Search users..." 
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
