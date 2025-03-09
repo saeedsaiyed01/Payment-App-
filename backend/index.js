@@ -8,20 +8,11 @@ const rootRouter = require('./ROUTES/index');
 // Initialize the Express app
 const app = express();
 
-// Middleware setup
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Basic route for testing
-app.get("/", (req, res) => {
-    res.send("Backend is working!");
-});
-
-// CORS Configuration
+// CORS Configuration - place this at the top
 const allowedOrigins = [
     'http://localhost:5173',
     'https://payment-app--nine.vercel.app',
-     'https://payment-app--nine.vercel.app/'
+    'https://payment-app--nine.vercel.app/'
 ];
 
 app.use(cors({
@@ -40,6 +31,14 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
+// Middleware setup
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Basic route for testing (optional, now also covered by CORS)
+app.get("/", (req, res) => {
+    res.send("Backend is working!");
+});
 
 // Mount the main router
 app.use('/api/v1', rootRouter);
