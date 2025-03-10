@@ -54,7 +54,7 @@ router.get('/transaction/download', authMiddleware, async (req, res) => {
         {
           headers: {
             Authorization: req.headers.authorization,
-          },
+          },  
         }
       );
       // Safely parse the balance in case it's not a perfect number

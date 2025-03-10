@@ -10,12 +10,12 @@ export const Users = () => {
     const [filter, setFilter] = useState("");
     const [loggedInUserId, setLoggedInUserId] = useState(null);
 
- 
+
     useEffect(() => {
         const token = localStorage.getItem('token');
 
         if (!token) {
-                console.error("No token found in local storage");
+            console.error("No token found in local storage");
             return;
         }
 
@@ -43,7 +43,7 @@ export const Users = () => {
 
         fetchLoggedInUserAndUsers();
     }, [filter]);
-// Users.jsx
+    // Users.jsx
 
     // ... existing code ...
 
@@ -51,19 +51,15 @@ export const Users = () => {
         <div className="max-w-2xl mx-auto p-4">
             <div className="text-3xl font-bold text-gray-800 mb-6">All Users</div>
             <div className="mb-6 relative">
-                <input 
-                
-                
-
-
-                
-                    type="text" 
-                    placeholder="Search users..." 
+                <input
+                    onChange={(e) => setFilter(e.target.value)}
+                    type="text"
+                    placeholder="Search users..."
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all"
                 />
-                <svg 
+                <svg
                     className="absolute right-3 top-3.5 h-6 w-6 text-gray-400"
-                    fill="none" 
+                    fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                 >
@@ -91,8 +87,8 @@ function User({ user }) {
                     <p className="text-sm text-gray-500">{user.email}</p>
                 </div>
             </div>
-            <Button 
-                onClick={() => navigate(`/send?id=${user._id}&name=${user.firstName}`)} 
+            <Button
+                onClick={() => navigate(`/send?id=${user._id}&name=${user.firstName}`)}
                 label={"Send Money"}
                 className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105"
             />
