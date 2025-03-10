@@ -4,7 +4,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { AppBar } from '../components/Appbar';
-
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 // Helper function to format dates using local time
 const formatLocalDate = (date) => {
   const year = date.getFullYear();
