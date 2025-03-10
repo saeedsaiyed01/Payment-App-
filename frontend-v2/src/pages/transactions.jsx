@@ -1,5 +1,4 @@
 import React from 'react'
-import { TransactionItem } from '../Dashboard/transactionIteam'
 import { TransactionsList } from '../Dashboard/transactionList'
 import { AppBar } from '../components/Appbar'
 
@@ -9,7 +8,7 @@ function Transactions() {
       <div >
         <AppBar />
         <TransactionsList />
-        <TransactionItem />
+    
       </div>
     </div>
   )
